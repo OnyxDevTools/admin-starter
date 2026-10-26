@@ -1,4 +1,4 @@
 interface:
-  display_name: "Maintain Baseline Web App"
-  short_description: "Safely maintain and validate Baseline Web App"
+  display_name: "Maintain Admin Starter"
+  short_description: "Safely maintain and validate Admin Starter"
   default_prompt: "Use $maintain-baseline-webapp to implement and validate this repository change safely."

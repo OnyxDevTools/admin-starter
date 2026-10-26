@@ -5,7 +5,6 @@ Read only the constitutions relevant to the current task.
 | When working with                                                     | Read                  |
 | --------------------------------------------------------------------- | --------------------- |
 | Next.js routing, layouts, server components, route handlers           | `nextjs.md`           |
-| Cloudflare Workers builds, previews, deployment, and bindings         | `cloudflare.md`       |
 | React components, hooks, rendering, composition                       | `react.md`            |
 | Type definitions, generics, domain models                             | `typescript.md`       |
 | Styling and responsive layouts                                        | `tailwind.md`         |

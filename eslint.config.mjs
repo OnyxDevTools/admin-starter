@@ -12,6 +12,5 @@ export default defineConfig([
     ".next-build/**",
     ".open-next/**",
     ".wrangler/**",
-    "cloudflare-env.d.ts",
   ]),
 ]);

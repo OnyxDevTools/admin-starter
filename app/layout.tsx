@@ -1,3 +1,4 @@
+import project from "@/project.json";
 import type { Metadata, Viewport } from "next";
 import { IBM_Plex_Mono, IBM_Plex_Sans } from "next/font/google";
 
@@ -20,8 +21,8 @@ const plexMono = IBM_Plex_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Baseline Web App",
-    template: "%s · Baseline Web App",
+    default: project.name,
+    template: `%s · ${project.name}`,
   },
   description: "A clean Next.js application skeleton.",
 };

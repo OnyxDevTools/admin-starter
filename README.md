@@ -1,82 +1,85 @@
-# Baseline Web App
+# Admin Starter
 
-A clean, local-first Next.js application skeleton with a compact sidebar, dark design system, reusable UI primitives, and representative routes.
+Build admin panels, dashboards, and internal tools with a compact sidebar,
+reusable components, validated forms, and data tables. Built for Onyx Cloud to
+select and adapt from a user's prompt.
 
-## Stack
+![Admin Starter project collection](public/template-preview.png)
 
-- Next.js App Router, React, and strict TypeScript
-- Tailwind CSS with source-owned shadcn/ui components
-- Radix UI primitives and Lucide icons
-- TanStack Query and TanStack Table
-- React Hook Form with Zod validation
-- nuqs for URL-backed state, sonner for toasts, date-fns for dates
-- Typed environment variables via t3-env (`env.ts`)
-- Prettier (Tailwind class sorting), knip dead-code analysis, Vitest, Playwright
-  and axe accessibility checks
+## Start
 
-## Local development
-
-Requires Node.js 22+ (`.nvmrc`).
+Requires Node.js 22.18+ and npm. No credentials, database, or environment files
+are required.
 
 ```bash
-npm install
-npm run dev
+npm ci
+npm run dev -- --port 3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
+Open [http://127.0.0.1:3000](http://127.0.0.1:3000). Use an available port for each
+project. Both development and production servers bind to loopback by default.
 
-The development server binds to `127.0.0.1` and is not exposed to the local
-network. In VS Code, run **App: Run development server** for ordinary work and
-reserve **App: Debug server (Webpack)** for intentional breakpoint sessions.
-Normal development keeps Turbopack; the debug launch uses Webpack for debugger-
-compatible source maps.
-
-## Routes
-
-- `/` — overview, design-system reference, and UI kitchen sink
-- `/projects` — generic collection empty state
-- `/settings` — settings shell
-- `/api/health` — basic health response
-
-## Agent guidance
-
-- `AGENTS.md` — workflow, Overview contract, definition of done
-- `docs/constitutions/` — library rules (indexed in `docs/constitutions/index.md`)
-- `docs/recipes/` — feature scaffolds for common page shapes
-- `CONTRIBUTING.md` — Conventional Commits and PR expectations
-- `.cursor/rules/` — path-scoped Cursor rules
-
-## Validation
+## Make it yours
 
 ```bash
-npm run check     # lint, typecheck, format, dead code, unit tests, build
-npm run check:all # check plus Playwright across desktop and mobile Chromium
-npm run test      # Vitest unit tests for lib/
-npm run test:e2e  # Playwright end-to-end tests
+npm run template:init -- --name "Inventory Admin" --slug inventory-admin
 ```
 
-CI runs `npm run check`, Playwright e2e (axe serious/critical gates), and an
-advisory `npm audit`. Failed browser runs retain their report, traces, and
-screenshots as CI artifacts. Dependabot opens weekly dependency PRs. Pre-commit
-formats staged files with husky + lint-staged.
+This updates the display name and package namespace. Header, browser titles,
+accessible home label, and `/api/health` all use `project.json`. Run this before
+building; restart development after renaming. The template catalog identity stays
+`admin-starter`.
 
-Production validation builds the OpenNext Worker and performs a Wrangler
-deployment dry run.
+## Included
 
-## Cloudflare deployment
+- Next.js App Router, React, strict TypeScript, Tailwind, and shadcn/ui
+- Radix and Lucide for accessible controls and icons
+- TanStack Table, TanStack Query, React Hook Form, Zod, and nuqs
+- Dark shell, sidebar navigation, loading/error boundaries, and security headers
+- Working collection example: search, status filter, sort, pagination, create/edit
+- Vitest, Playwright, axe accessibility checks, lint, formatting, and dead-code checks
+- Agent guidance, scoped library constitutions, and feature recipes
 
-This full-stack application deploys to Cloudflare Workers through the OpenNext
-adapter. Cloudflare Pages supports Next.js as a static export only, so Pages is
-not a compatible target while server routes such as `/api/health` remain part of
-the application.
+| Route         | Purpose                                                      |
+| ------------- | ------------------------------------------------------------ |
+| `/`           | Living component showcase and design-system reference        |
+| `/projects`   | Working demo collection; edits reset on navigation or reload |
+| `/settings`   | Empty settings shell to adapt to the requested product       |
+| `/api/health` | HTTP 200 with the project slug and `status: "ok"`            |
+
+Authentication, authorization, a database, durable data, and external integrations
+are not included. Implement them when the requested product needs them.
+
+## Onyx integration
+
+Read [the integration guide](docs/template-integration.md). [template.json](template.json)
+contains selection copy, use/avoid cases, capabilities, runtime commands, and a
+preview reference. It is repository-owned metadata, not an official Onyx schema.
+Onyx can cache this metadata to choose a template before installing anything.
+Pin a tested commit, copy clean source, initialize the project name, then run the
+standard Node.js commands on an assigned port.
+
+## Validate and preview
 
 ```bash
-npm run preview # build and run locally in workerd
-npm run deploy  # build and deploy to Cloudflare Workers
+npm run check       # lint, types, format, dead code, unit tests, production build
+npm run check:all   # check plus desktop/mobile browser and accessibility tests
+npm run template:smoke # fresh install, rename, build, start, health and route checks
+npm run build
+npm run start -- --port 3000
 ```
 
-The Worker configuration lives in `wrangler.jsonc`. Before the first deploy,
-authenticate Wrangler with `npx wrangler login`, or provide Cloudflare API
-credentials through the deployment environment. Add future build-time values
-and secrets to the Cloudflare Workers build configuration as well as to the
-deployed Worker.
+Browser tests start their own server on port 3217 and fail on collisions. Set
+`E2E_PORT` in the process environment to run another instance. Next.js also accepts
+`PORT` from the process environment; `--port` is the explicit per-instance option.
+The starter runs on standard Node.js with no hosting adapter.
+
+## Agent entry points
+
+- [AGENTS.md](AGENTS.md) — project rules and definition of done
+- [Architecture](docs/architecture/system-design.md) — runtime and ownership
+- [Constitutions](docs/constitutions/index.md) — library rules, loaded as needed
+- [Recipes](docs/recipes/index.md) — page, form, dialog, and table patterns
+- [Contributing](CONTRIBUTING.md) — checks and commit conventions
+
+CI runs the full quality gate, fresh-template smoke checks, and advisory npm audit.

@@ -1,6 +1,7 @@
 "use client";
 
 import {
+  Component,
   FolderKanban,
   LayoutDashboard,
   type LucideIcon,
@@ -8,6 +9,8 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+
+import project from "@/project.json";
 
 import { cn } from "@/lib/utils";
 
@@ -68,10 +71,10 @@ export function AppSidebar() {
       <Link
         href="/"
         className="border-border/70 focus-visible:ring-primary flex h-16 items-center justify-center border-b focus-visible:ring-2 focus-visible:outline-none focus-visible:ring-inset"
-        aria-label="Baseline Web App home"
+        aria-label={`${project.name} home`}
       >
         <span className="bg-primary/12 text-primary ring-primary/20 flex size-9 items-center justify-center rounded-lg font-mono text-xs font-semibold ring-1 ring-inset">
-          AS
+          <Component className="size-5" aria-hidden="true" />
         </span>
       </Link>
 
