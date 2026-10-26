@@ -72,7 +72,6 @@ route unmounts or reloads; this is explicitly labeled in the UI.
   and definition of done.
 - `docs/constitutions/` holds per-library implementation rules.
 - `docs/recipes/` holds feature scaffolds for common page shapes.
-- `.cursor/rules/` provides path-scoped Cursor rules that point at those docs.
 - `CONTRIBUTING.md` and the pull request template enforce Conventional Commits
   and the same checklist.
 
