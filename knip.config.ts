@@ -1,7 +1,6 @@
 import type { KnipConfig } from "knip";
 
 const config = {
-  entry: ["open-next.config.ts"],
   // Zustand is an intentional baseline dependency. Do not create a store until
   // shared, client-owned state has a concrete owner.
   ignoreDependencies: ["zustand"],

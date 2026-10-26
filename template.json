@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "id": "admin-starter",
+  "name": "Admin Starter",
+  "description": "Build admin panels, dashboards, and internal tools with a compact sidebar, reusable components, forms, and data tables.",
+  "tags": [
+    "admin",
+    "internal-tools",
+    "dashboard",
+    "nextjs",
+    "typescript",
+    "tailwind",
+    "shadcn-ui"
+  ],
+  "useWhen": [
+    "An admin panel or internal tool needs navigation, forms, tables, and settings",
+    "A user asks to manage business records or operational workflows"
+  ],
+  "avoidWhen": [
+    "A marketing site, blog, storefront, or content-first site is the primary experience",
+    "The prompt requires a different framework or an existing repository"
+  ],
+  "capabilities": [
+    "Dark application shell",
+    "Component showcase",
+    "Searchable and sortable demo collection with pagination",
+    "Validated create and edit dialogs",
+    "Accessible desktop and mobile components"
+  ],
+  "notIncluded": [
+    "Authentication",
+    "Authorization",
+    "Database",
+    "Persistent project data",
+    "External integrations"
+  ],
+  "examplePrompt": "Build an inventory admin with searchable products, stock alerts, and an edit-product form.",
+  "preview": { "image": "public/template-preview.png", "route": "/projects" },
+  "runtime": {
+    "node": ">=22.18.0",
+    "install": "npm ci",
+    "develop": "npm run dev -- --port <assigned-port>",
+    "build": "npm run build",
+    "start": "npm run start -- --port <assigned-port>",
+    "healthPath": "/api/health",
+    "requiredEnvironment": []
+  },
+  "initialize": "npm run template:init -- --name <project-name> --slug <project-slug>",
+  "instructions": "docs/template-integration.md"
+}

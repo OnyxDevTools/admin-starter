@@ -21,8 +21,7 @@
 - Keep secrets and privileged SDKs in server-only modules.
 - Make caching and revalidation behavior explicit.
 - Target the standard Next.js Node.js runtime for the local application.
-- Use the OpenNext adapter to deploy the standard Node.js runtime build to
-  Cloudflare Workers.
+- Use `next build` and `next start` for the standard Node.js production path.
 - Keep local service integrations on the server and bind supporting processes
   to loopback interfaces.
 - Proxy authenticated provider streams through a Node.js Route Handler. Keep
@@ -42,7 +41,7 @@
 - Duplicating routing state in Zustand
 - Owning route-independent timers, streams, or job loops inside a page component
 - Adding hosting, deployment, or alternate-runtime adapters without an explicit
-  architecture change beyond the documented Cloudflare Workers target
+  architecture change
 
 ## Decision rules
 
@@ -62,4 +61,3 @@
 - `typescript.md`
 - `zod.md`
 - `zustand.md`
-- `cloudflare.md`

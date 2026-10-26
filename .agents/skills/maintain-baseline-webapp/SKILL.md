@@ -1,9 +1,9 @@
 ---
 name: maintain-baseline-webapp
-description: Maintain Baseline Web App safely and consistently. Use for implementation, refactoring, debugging, dependency upgrades, configuration changes, UI maintenance, test updates, repository cleanup, or Cloudflare Workers deployment work in this repository. Route each task through the project architecture, relevant library constitutions, existing recipes and patterns, scoped validation, and a concise evidence-based handoff.
+description: Maintain Admin Starter safely and consistently. Use for implementation, refactoring, debugging, dependency upgrades, configuration changes, UI maintenance, test updates, repository cleanup, or template preparation in this repository. Route each task through the project architecture, relevant library constitutions, existing recipes and patterns, scoped validation, and a concise evidence-based handoff.
 ---
 
-# Maintain Baseline Web App
+# Maintain Admin Starter
 
 Preserve the repository's architecture and quality gates while making the
 smallest complete change. Treat `AGENTS.md` as the governing project contract.
@@ -18,8 +18,8 @@ smallest complete change. Treat `AGENTS.md` as the governing project contract.
    - Diagnose: find and evidence the cause; fix only when requested.
    - Change: implement, test, and finish all applicable definition-of-done
      items.
-   - Deploy or delete: require explicit authorization and verify the exact
-     Cloudflare target before changing external state.
+   - Publish or delete: require explicit authorization and verify the exact
+     repository target before changing external state.
 4. Inspect the current implementation and nearby tests before choosing an
    abstraction.
 
@@ -39,7 +39,6 @@ Use this routing guide:
 | Environment configuration                   | `system-design.md`, `nextjs.md`, `t3-env.md`, `zod.md`                                             |
 | Unit or browser tests                       | `vitest.md` or `playwright.md`                                                                     |
 | Dependencies or dead code                   | the library constitution, `knip.md`, and `prettier.md`                                             |
-| Worker configuration or deployment          | `system-design.md`, `cloudflare.md`, `nextjs.md`                                                   |
 
 Check `docs/recipes/index.md` before composing a page, form, dialog, collection,
 or URL-filtered table. Adapt the matching recipe instead of inventing a parallel
@@ -79,27 +78,17 @@ for demonstration control IDs.
 - Ignore generated build artifacts in lint, formatting, and version control
   rather than editing generated output.
 
-## 5. Preserve the Cloudflare deployment boundary
+## 5. Preserve the template runtime boundary
 
-- Deploy full-stack Next.js only as the `baselineawebapp` Cloudflare Worker
-  through `@opennextjs/cloudflare` and Workers Static Assets.
-- Do not create a Pages project, static-export variant, or
-  `@cloudflare/next-on-pages` setup.
-- Keep the Next.js Node.js runtime model; do not add `runtime = "edge"`.
-- Treat `wrangler.jsonc` as the Worker configuration source of truth and run
-  `npm run cf-typegen` after binding changes.
-- Never deploy, rename, delete, attach a domain, or mutate bindings unless the
-  user explicitly asks. Prefer `npm run check:cloudflare` for non-mutating
-  deployment validation.
-- For an authorized deployment, run `npm run deploy`, capture the Worker name,
-  version, URL, bundle size, and startup time, then smoke-test `/`, primary
-  routes, and `/api/health` before reporting success.
-- For replacement or deletion, deploy and verify the replacement first. Resolve
-  the exact old target with a dry run when available, delete it explicitly, and
-  confirm the former endpoint is unavailable.
-
-Retrieve current official Cloudflare documentation before changing adapter,
-Wrangler, compatibility flags, runtime behavior, bindings, or limits.
+- Treat this as a standard Node.js Next.js app. Do not add hosting adapters,
+  deployment configuration, or alternate runtimes unless explicitly requested.
+- Keep generated app identity in `project.json` and template catalog identity in
+  `template.json`. Naming runs before the production build.
+- Keep the starter credential-free. Clearly identify demo data and its lifetime.
+- Onyx owns project isolation, process ports, and preview proxying.
+- Validate template releases with `npm run template:smoke` from a clean copy.
+- Publishing a repository requires user authorization; never expose local env
+  files, generated output, or dependencies.
 
 ## 6. Validate proportionally
 
@@ -109,9 +98,6 @@ Run focused checks while iterating, then complete the applicable gate:
 - `lib/` behavior: focused Vitest, then `npm run check`.
 - UI, routing, shell, or client flows: `npm run check`, then
   `npm run test:e2e` when browser dependencies are available.
-- Worker or deployment configuration: `npm run check`, which includes the
-  OpenNext build, binding type freshness, and Wrangler deploy dry run. Use
-  `npm run preview` for runtime-sensitive local smoke tests.
 - Before handoff, prefer `npm run check:all` when its full scope is applicable
   and browser dependencies are available.
 

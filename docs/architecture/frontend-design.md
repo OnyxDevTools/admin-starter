@@ -71,3 +71,11 @@ space.
 and `global-error.tsx` cover failures outside or above the shell. Feature
 routes should add local loading or error boundaries only when they can provide
 more specific recovery behavior.
+
+## Template example
+
+Projects demonstrates URL-backed search, status filtering, and pagination with
+TanStack Table sorting. Its local client components own seeded in-memory rows
+and a React Hook Form/Zod create/edit dialog. No UI primitives or remote API
+are introduced for this example. The demo reset behavior stays visible. The
+Overview remains the component reference; product features use their own routes.

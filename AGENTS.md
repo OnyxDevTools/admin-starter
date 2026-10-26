@@ -12,6 +12,19 @@ Before modifying code:
 
 Do not load every constitution for every task.
 
+## Onyx template workflow
+
+- This is the `admin-starter` template for admin panels and internal tools.
+- Read `docs/template-integration.md` when changing template setup or selection.
+- Implement the user's domain by adapting the existing shell, Projects example,
+  and recipes. Keep `/` as the component reference.
+- Keep template identity in `template.json`; generated app identity lives in
+  `project.json` and is initialized through `npm run template:init`.
+- The starter requires no credentials. Demo project changes are in memory only;
+  add authentication, authorization, and persistence when the prompt requires them.
+- Use focused validation while editing and the full checks before delivery. Run
+  `npm run template:smoke` when changing template setup, naming, or dependencies.
+
 ## Core requirements
 
 - Use strict TypeScript.

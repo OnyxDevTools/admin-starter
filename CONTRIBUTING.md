@@ -26,7 +26,7 @@ Keep each commit focused. Prefer a short subject line that states why the change
 
 ## Environment
 
-Use Node.js 22+ (see `.nvmrc`). CI reads the same file.
+Use Node.js 22.18+ (see `.nvmrc`). CI reads the same file.
 
 ## Pull requests
 
@@ -34,6 +34,7 @@ Use the repository pull request template. Before opening a PR, run:
 
 ```bash
 npm run check:all
+npm run template:smoke
 ```
 
 Pre-commit runs `lint-staged` (Prettier) via husky. Do not bypass hooks unless

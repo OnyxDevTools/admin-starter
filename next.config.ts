@@ -1,11 +1,11 @@
 import type { NextConfig } from "next";
-import { initOpenNextCloudflareForDev } from "@opennextjs/cloudflare";
 
 import { env } from "./env";
-
-initOpenNextCloudflareForDev();
+import project from "./project.json";
+import { projectIdentitySchema } from "./lib/project";
 
 void env;
+projectIdentitySchema.parse(project);
 
 const securityHeaders = [
   { key: "X-Content-Type-Options", value: "nosniff" },
