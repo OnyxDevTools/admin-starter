@@ -5,8 +5,6 @@
     "**/node_modules": true,
     "**/.next": true,
     "**/.next-build": true,
-    "**/.open-next": true,
-    "**/.wrangler": true,
     "**/playwright-report": true,
     "**/test-results": true,
     "**/*.tsbuildinfo": true,
@@ -16,8 +14,6 @@
     "**/node_modules": true,
     "**/.next": true,
     "**/.next-build": true,
-    "**/.open-next": true,
-    "**/.wrangler": true,
     "**/playwright-report": true,
     "**/test-results": true,
     "**/*.tsbuildinfo": true

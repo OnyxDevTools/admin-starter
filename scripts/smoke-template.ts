@@ -11,8 +11,6 @@ const excluded = new Set([
   "node_modules",
   ".next",
   ".next-build",
-  ".open-next",
-  ".wrangler",
   "playwright-report",
   "test-results",
 ]);

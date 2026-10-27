@@ -7,10 +7,5 @@ export default defineConfig([
   ...nextVitals,
   ...nextTypeScript,
   eslintConfigPrettier,
-  globalIgnores([
-    ".next/**",
-    ".next-build/**",
-    ".open-next/**",
-    ".wrangler/**",
-  ]),
+  globalIgnores([".next/**", ".next-build/**"]),
 ]);

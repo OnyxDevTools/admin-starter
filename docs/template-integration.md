@@ -14,7 +14,7 @@ repeatable selection. The preview image shows the actual Projects example.
 ## Instantiate
 
 1. Copy the source at a tested commit, excluding `.git`, `node_modules`, `.next`,
-   `.next-build`, `.open-next`, `.wrangler`, reports, caches, and local `.env` files.
+   `.next-build`, reports, caches, and local `.env` files.
    Preserve `.env.example`, agent instructions, and the lockfile.
 2. Use Node.js 22.18+ and run `npm ci`. No credentials are required.
 3. Run `npm run template:init -- --name "Inventory Admin" --slug inventory-admin`.
