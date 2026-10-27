@@ -25,17 +25,20 @@
     "Component showcase",
     "Searchable and sortable demo collection with pagination",
     "Validated create and edit dialogs",
-    "Accessible desktop and mobile components"
+    "Accessible desktop and mobile components",
+    "Server-only Onyx SDK and typed Task CRUD example"
   ],
   "notIncluded": [
     "Authentication",
     "Authorization",
-    "Database",
     "Persistent project data",
     "External integrations"
   ],
   "examplePrompt": "Build an inventory admin with searchable products, stock alerts, and an edit-product form.",
-  "preview": { "image": "public/template-preview.png", "route": "/projects" },
+  "preview": {
+    "image": "public/template-preview.png",
+    "route": "/projects"
+  },
   "runtime": {
     "node": ">=22.18.0",
     "install": "npm ci",
@@ -43,7 +46,8 @@
     "build": "npm run build",
     "start": "npm run start -- --port <assigned-port>",
     "healthPath": "/api/health",
-    "requiredEnvironment": []
+    "requiredEnvironment": [],
+    "readinessPath": "/api/ready"
   },
   "initialize": "npm run template:init -- --name <project-name> --slug <project-slug>",
   "instructions": "docs/template-integration.md"

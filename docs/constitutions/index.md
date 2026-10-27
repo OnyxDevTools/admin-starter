@@ -4,6 +4,7 @@ Read only the constitutions relevant to the current task.
 
 | When working with                                                     | Read                  |
 | --------------------------------------------------------------------- | --------------------- |
+| Onyx Database SDK and persistence                                     | `onyx.md`             |
 | Next.js routing, layouts, server components, route handlers           | `nextjs.md`           |
 | React components, hooks, rendering, composition                       | `react.md`            |
 | Type definitions, generics, domain models                             | `typescript.md`       |

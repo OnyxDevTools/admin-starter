@@ -16,7 +16,8 @@ repeatable selection. The preview image shows the actual Projects example.
 1. Copy the source at a tested commit, excluding `.git`, `node_modules`, `.next`,
    `.next-build`, reports, caches, and local `.env` files.
    Preserve `.env.example`, agent instructions, and the lockfile.
-2. Use Node.js 22.18+ and run `npm ci`. No credentials are required.
+2. Use Node.js 22.18+ and run `npm ci`. No credentials are required for the UI.
+   For the included Task persistence example, follow `docs/onyx.md`.
 3. Run `npm run template:init -- --name "Inventory Admin" --slug inventory-admin`.
    This updates `project.json` and package/lockfile names. Header, titles, home
    label, and health identity derive from `project.json`. The template catalog
@@ -53,7 +54,8 @@ Naming must run before the build; restart a dev server after changing identity.
 
 Projects uses in-memory browser state. Search, status, and page are URL-backed;
 created and edited records reset when leaving the page or reloading. Connect a
-validated server API and persistence when the prompt needs durable data. There is
+validated server API using `lib/onyx/tasks.ts` as the persistence pattern when
+the prompt needs durable data. There is
 no authentication or authorization; those must be implemented before exposing
 private business data. Settings is an empty shell to adapt to the user's domain.
 

@@ -13,6 +13,7 @@ const excluded = new Set([
   ".next-build",
   "playwright-report",
   "test-results",
+  "config",
 ]);
 let server: ReturnType<typeof spawn> | undefined;
 try {
@@ -22,6 +23,7 @@ try {
       const name = basename(source);
       return (
         !excluded.has(name) &&
+        !name.startsWith("onyx-database") &&
         !(name.startsWith(".env") && name !== ".env.example") &&
         !name.endsWith(".tsbuildinfo") &&
         !name.endsWith(".log")

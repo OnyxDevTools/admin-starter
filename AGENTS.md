@@ -21,7 +21,7 @@ Do not load every constitution for every task.
 - Keep template identity in `template.json`; generated app identity lives in
   `project.json` and is initialized through `npm run template:init`.
 - The starter requires no credentials. Demo project changes are in memory only;
-  add authentication, authorization, and persistence when the prompt requires them.
+  use the included Onyx Task adapter for persistence; add authentication and authorization before exposing database data.
 - Use focused validation while editing and the full checks before delivery. Run
   `npm run template:smoke` when changing template setup, naming, or dependencies.
 
@@ -85,3 +85,12 @@ A change is not complete until applicable items are finished:
 - Use Conventional Commits (`feat:`, `fix:`, `docs:`, `chore:`, `test:`, `refactor:`).
 - Keep commits focused; do not mix unrelated refactors with feature work.
 - Fill the pull request template checklist before requesting review.
+
+## Onyx persistence
+
+Read `docs/onyx.md` before persistence changes. Keep SDK imports server-only,
+externalized in Next, and lazy. Use the downloaded-config resolver; never expose
+credentials or publish schemas during startup/build. `lib/onyx/tasks.ts` owns the
+typed Task example. Authorize before using it in routes; use bounded pagination,
+insert-only creation, filtered updates/deletes, and sanitized errors. No retries
+or transaction guarantees for mutations. Run `npm run test:onyx`.

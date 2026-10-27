@@ -8,8 +8,8 @@ select and adapt from a user's prompt.
 
 ## Start
 
-Requires Node.js 22.18+ and npm. No credentials, database, or environment files
-are required.
+Requires Node.js 22.18+ and npm. The UI starts without credentials or a database;
+the optional Onyx example needs a downloaded database configuration.
 
 ```bash
 npm ci
@@ -47,8 +47,9 @@ building; restart development after renaming. The template catalog identity stay
 | `/settings`   | Empty settings shell to adapt to the requested product       |
 | `/api/health` | HTTP 200 with the project slug and `status: "ok"`            |
 
-Authentication, authorization, a database, durable data, and external integrations
-are not included. Implement them when the requested product needs them.
+The official Onyx SDK, a Task schema, and server-only CRUD example are included.
+Projects remains an in-memory UI demo. Add application authentication and
+authorization before exposing private data or writes through routes.
 
 ## Onyx integration
 
@@ -83,3 +84,9 @@ The starter runs on standard Node.js with no hosting adapter.
 - [Contributing](CONTRIBUTING.md) — checks and commit conventions
 
 CI runs the full quality gate, fresh-template smoke checks, and advisory npm audit.
+
+## Onyx Database SDK
+
+The official SDK and typed one-table Task CRUD example are included. See
+[Onyx setup and example](docs/onyx.md) for downloaded configuration, explicit
+schema commands, CLI CRUD, and authorization boundaries. UI startup needs no credentials.

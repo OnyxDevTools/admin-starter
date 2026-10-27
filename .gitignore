@@ -9,3 +9,7 @@ test-results/
 *.tsbuildinfo
 .DS_Store
 *.dmg
+
+# Downloaded Onyx credentials (schema under api/ stays tracked)
+**/onyx-database*.json
+config/

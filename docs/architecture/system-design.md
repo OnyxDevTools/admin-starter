@@ -25,8 +25,9 @@ The shell, metadata, and health response read that file directly. `template.json
 keeps the reusable template's catalog identity, selection hints, and runtime
 contract; it is not an official Onyx API. See `docs/template-integration.md`.
 
-There are no external services, authentication providers, databases, streams,
-or privileged integrations in the skeleton.
+The official Onyx SDK and server-only Task repository are configured for explicit
+database use; see ../onyx.md. Authentication remains application-owned. Existing
+Projects UI remains an explicitly labeled in-memory component demonstration.
 
 ## Route map
 
